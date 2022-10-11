@@ -69,7 +69,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
 
-What features can you get on this site?:
+### What features can you get on this site?:
+
 1.This is a skill-building site. You can improve your skills by taking quizzes on this site.
 2.This is a one-page application site. Being a one-page application site, this site will load quickly.
 3/React router is being used to speed up this site which can load any kind of page without loading.
