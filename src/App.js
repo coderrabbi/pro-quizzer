@@ -39,7 +39,12 @@ function App() {
             ),
           element: <TopicDetails />,
         },
-        { path: "/statistics", element: <Statistics /> },
+        {
+          path: "/statistics",
+          loader: async () =>
+            fetch(" https://openapi.programming-hero.com/api/quiz"),
+          element: <Statistics />,
+        },
         { path: "/blog", element: <Blog /> },
       ],
     },
