@@ -13,7 +13,10 @@ const Topics = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4  grid-cols-1 gap-5 ">
         {topics.map((topic) => (
-          <div className="bg-pink-500/30 backdrop:blur-lg text-center flex flex-col gap-4 rounded-xl py-5 ">
+          <div
+            key={topic.id}
+            className="bg-pink-500/30 backdrop:blur-lg text-center flex flex-col gap-4 rounded-xl py-5 "
+          >
             <img
               src={topic.logo}
               alt={topic.name}
