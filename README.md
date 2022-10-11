@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +67,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+
+What features can you get on this site?:
+1.This is a skill-building site. You can improve your skills by taking quizzes on this site.
+2.This is a one-page application site. Being a one-page application site, this site will load quickly.
+3/React router is being used to speed up this site which can load any kind of page without loading.
+4.This site has quizzes on various programming topics and you can improve your programming skills by participating in those quizzes.
+5.No comparison to React Router for client site rendering. Client site becomes very powerful for React Router.And that React router is used on this site

@@ -7,7 +7,10 @@ const Blog = () => {
       {data.map((qna) => (
         <div key={qna.id} className="flex flex-col gap-5">
           <h1 className="text-3xl text-slate-500 ">Q:{qna.Q}</h1>
-          <p className="text-[18px]">Ans:{qna.ans}</p>
+          <p className="text-[18px]">
+            <span className="text-2xl font-semibold text-pink-500">Ans:</span>{" "}
+            {qna.ans}
+          </p>
         </div>
       ))}
     </div>
