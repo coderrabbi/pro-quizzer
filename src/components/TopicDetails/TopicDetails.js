@@ -14,11 +14,11 @@ const TopicDetails = () => {
         Topic Name: <span className="text-pink-500">{name}</span>
       </h1>
       {topicData.map((topic) => (
-        <div key={topic.id} className="">
+        <div key={topic.id} className="bg-slate-500 w-[700px] p-5">
           <h2> Q:{topic.question}</h2>
           <div className="grid grid-cols-2">
             {topic.options.map((option) => (
-              <p>{option}</p>
+              <input type="radio" />
             ))}
           </div>
         </div>
