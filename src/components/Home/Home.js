@@ -3,10 +3,10 @@ import hero from "../../assets/hero.jpg";
 import Topics from "../Topics/Topics";
 const Home = () => {
   return (
-    <div className="px-20">
-      <div className="  flex lg:flex gap-3 items-center ">
+    <div className="lg:px-20 px-10 lg:py-0 py-10">
+      <div className="flex flex-col lg:flex-row  gap-3 items-center ">
         <div className="flex-1 gap-3 flex flex-col">
-          <h1 className="text-5xl font-semibold leading-[60px]  ">
+          <h1 className="lg:text-5xl text-3xl font-semibold lg:leading-[60px]  leading-[40px] ">
             <span className="text-pink-500">Complete</span> the quizzes and{" "}
             <br /> improving your <br />
             programming <span className="text-pink-500">skills</span>

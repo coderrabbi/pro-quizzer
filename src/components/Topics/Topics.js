@@ -6,7 +6,7 @@ const Topics = () => {
   const topics = topicsData.data;
 
   return (
-    <div className="flex px-20 flex-col gap-8 my-10">
+    <div className="flex lg:px-20  px-5 flex-col gap-8 my-10">
       <h1 className="text-center text-6xl font-semibold">
         <span className="text-pink-500">Pick</span> A Topic
       </h1>
