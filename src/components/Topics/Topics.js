@@ -19,6 +19,7 @@ const Topics = () => {
               className="w-[50%] m-auto rounded-full"
             />
             <h1 className="text-3xl ">{topic.name}</h1>
+            <h3>Total Quiz: {topic.total}</h3>
             <Link to={`/topicdetails/${topic.id}`}>
               <button className="bg-white px-4 rounded" type="button">
                 Pick Topic

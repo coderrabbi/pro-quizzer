@@ -16,6 +16,7 @@ const Home = () => {
             regularly playing online quiz games. In addition to being a
             fantastic mental exercise and means to gather a wide variety of
             information about diverse subjects, playing quiz games, both online
+            and offline have other benefits.
           </p>
         </div>
         <div className="flex-1">
