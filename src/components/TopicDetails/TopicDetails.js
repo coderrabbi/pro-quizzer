@@ -5,9 +5,13 @@ const TopicDetails = () => {
   const topics = useLoaderData();
   const { name } = topics.data;
   const topicData = topics.data.questions;
-  const topicOptions = topics.data.questions.options;
-  console.log(topicData);
-  console.log(topicOptions);
+  const handleCheck = (option, correctAnswer) => {
+    if (option === correctAnswer) {
+      alert("Correct answer");
+    }
+  };
+  const handleClick = (correctAnswer) => alert(correctAnswer);
+
   return (
     <div className="sm:px-20 px-5 flex flex-col gap-5 justify-center items-center py-10">
       <h1 className="text-3xl">
@@ -26,13 +30,20 @@ const TopicDetails = () => {
             </h2>
             <div>
               {" "}
-              <IoEyeOutline className="text-white text-3xl w-10" />
+              <IoEyeOutline
+                className="text-white text-3xl w-10 cursor-pointer"
+                onClick={() => handleClick(topic.correctAnswer)}
+              />
             </div>
           </div>
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-5">
-            {topic.options.map((option) => (
-              <div className="flex gap-3 text-white items-center">
-                <label htmlFor={option} className="flex gap-3 mb-3">
+            {topic.options.map((option, index) => (
+              <div key={index} className="flex gap-2 text-white items-center">
+                <label
+                  htmlFor={option}
+                  className={`flex gap-3 mb-3 hover:bg-slate-500 cursor-pointer p-3 rounded-xl`}
+                  onClick={() => handleCheck(option, topic.correctAnswer)}
+                >
                   <input
                     type="radio"
                     name="option"
