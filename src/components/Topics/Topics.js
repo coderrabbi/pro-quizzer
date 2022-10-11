@@ -6,10 +6,11 @@ const Topics = () => {
   const topics = topicsData.data;
 
   return (
-    <div className="flex flex-col gap-8 my-10">
+    <div className="flex px-20 flex-col gap-8 my-10">
       <h1 className="text-center text-6xl font-semibold">
         <span className="text-pink-500">Pick</span> A Topic
       </h1>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-4  grid-cols-1 gap-5 ">
         {topics.map((topic) => (
           <div className="bg-pink-500/30 backdrop:blur-lg text-center flex flex-col gap-4 rounded-xl py-5 ">

@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-
+import { IoEyeOutline } from "react-icons/io5";
 const TopicDetails = () => {
   const topics = useLoaderData();
   const { name } = topics.data;
@@ -13,18 +13,27 @@ const TopicDetails = () => {
       <h1 className="text-3xl">
         Topic Name: <span className="text-pink-500">{name}</span>
       </h1>
+
       {topicData.map((topic) => (
         <div
           key={topic.id}
           className="bg-pink-400 rounded-xl shadow-lg lg:w-3/5 w-full p-5"
         >
-          <h2> Q:{topic.question}</h2>
-          <table className="grid lg:grid-cols-2 grid-cols-1">
+          <div className="flex justify-between">
+            <h2 className="text-xl font-semibold mb-3 text-transparent  bg-clip-text bg-gradient-to-r from-teal-900 to-blue-500">
+              {" "}
+              Q:{topic.question}
+            </h2>
+            <div>
+              {" "}
+              <IoEyeOutline className="text-white text-3xl w-10" />
+            </div>
+          </div>
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-5">
             {topic.options.map((option) => (
               <div className="flex gap-3 text-white items-center">
                 <label htmlFor={option} className="flex gap-3 mb-3">
                   <input
-                    className=""
                     type="radio"
                     name="option"
                     id={option}
@@ -34,7 +43,7 @@ const TopicDetails = () => {
                 </label>
               </div>
             ))}
-          </table>
+          </div>
         </div>
       ))}
     </div>
