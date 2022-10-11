@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
+import ReactJsAlert from "reactjs-alert";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const TopicDetails = () => {
+  const [status, setStatus] = useState(false);
+  const [type, setType] = useState("");
+  const [title, setTitle] = useState("");
+
   const topics = useLoaderData();
   const { name } = topics.data;
   const topicData = topics.data.questions;
+  const notify = () =>
+    toast.success("Right Ans", {
+      autoClose: 1000,
+      position: "top-center",
+      theme: "colored",
+    });
+  const notif = () =>
+    toast.error("Wrong Ans", {
+      autoClose: 1000,
+      position: "top-center",
+      theme: "colored",
+    });
+  const [ans, setAns] = useState(false);
   const handleCheck = (option, correctAnswer) => {
     if (option === correctAnswer) {
-      alert("Correct answer");
+      setAns(!ans);
     }
   };
-  const handleClick = (correctAnswer) => alert(correctAnswer);
+  const handleClick = (correctAnswer) => {
+    setStatus(true);
+    setType("success");
+    setTitle(`correct ans:${correctAnswer}`);
+  };
 
   return (
     <div className="sm:px-20 px-5 flex flex-col gap-5 justify-center items-center py-10">
@@ -34,6 +59,7 @@ const TopicDetails = () => {
                 className="text-white text-3xl w-10 cursor-pointer"
                 onClick={() => handleClick(topic.correctAnswer)}
               />
+              ;
             </div>
           </div>
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-5">
@@ -43,7 +69,9 @@ const TopicDetails = () => {
                   htmlFor={option}
                   className={`flex gap-3 mb-3 hover:bg-slate-500 cursor-pointer p-3 rounded-xl`}
                   onClick={() => handleCheck(option, topic.correctAnswer)}
+                  onChange={ans ? notify : notif}
                 >
+                  <ToastContainer />
                   <input
                     type="radio"
                     name="option"
@@ -57,6 +85,12 @@ const TopicDetails = () => {
           </div>
         </div>
       ))}
+      <ReactJsAlert
+        status={status} // true or false
+        type={type} // success, warning, error, info
+        title={title}
+        Close={() => setStatus(false)}
+      />
     </div>
   );
 };
