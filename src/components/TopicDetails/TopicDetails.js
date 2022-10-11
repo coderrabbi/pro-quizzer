@@ -13,13 +13,13 @@ const TopicDetails = () => {
   const topics = useLoaderData();
   const { name } = topics.data;
   const topicData = topics.data.questions;
-  const notify = () =>
+  const right = () =>
     toast.success("Right Ans", {
       autoClose: 1000,
       position: "top-center",
       theme: "colored",
     });
-  const notif = () =>
+  const worng = () =>
     toast.error("Wrong Ans", {
       autoClose: 1000,
       position: "top-center",
@@ -28,7 +28,9 @@ const TopicDetails = () => {
   const [ans, setAns] = useState(false);
   const handleCheck = (option, correctAnswer) => {
     if (option === correctAnswer) {
-      setAns(!ans);
+      setAns(true);
+    } else {
+      setAns(false);
     }
   };
   const handleClick = (correctAnswer) => {
@@ -69,7 +71,7 @@ const TopicDetails = () => {
                   htmlFor={option}
                   className={`flex gap-3 mb-3 hover:bg-slate-500 cursor-pointer p-3 rounded-xl`}
                   onClick={() => handleCheck(option, topic.correctAnswer)}
-                  onChange={ans ? notify : notif}
+                  onChange={ans ? right : worng}
                 >
                   <ToastContainer />
                   <input
