@@ -13,19 +13,23 @@ const TopicDetails = () => {
   const topics = useLoaderData();
   const { name } = topics.data;
   const topicData = topics.data.questions;
+
   const right = () =>
     toast.success("Right Ans", {
       autoClose: 1000,
       position: "top-center",
       theme: "colored",
     });
+
   const worng = () =>
     toast.error("Wrong Ans", {
       autoClose: 1000,
       position: "top-center",
       theme: "colored",
     });
+
   const [ans, setAns] = useState(false);
+
   const handleCheck = (option, correctAnswer) => {
     if (option === correctAnswer) {
       setAns(true);
@@ -44,7 +48,6 @@ const TopicDetails = () => {
       <h1 className="text-3xl">
         Topic Name: <span className="text-pink-500">{name}</span>
       </h1>
-
       {topicData.map((topic) => (
         <div
           key={topic.id}
@@ -53,7 +56,7 @@ const TopicDetails = () => {
           <div className="flex justify-between">
             <h2 className="text-xl font-semibold mb-3 text-transparent  bg-clip-text bg-gradient-to-r from-teal-900 to-blue-500">
               {" "}
-              Q:{topic.question}
+              Q:{topic.question.slice(3, -4)}
             </h2>
             <div>
               {" "}
@@ -66,15 +69,14 @@ const TopicDetails = () => {
           </div>
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-5">
             {topic.options.map((option, index) => (
-              <div key={index} className="flex gap-2 text-white items-center">
+              <div key={index} className="flex gap-2  items-center">
                 <label
                   htmlFor={option}
-                  className={`flex gap-3 mb-3 hover:bg-slate-500 cursor-pointer p-3 rounded-xl`}
+                  className={`flex gap-3 mb-3 w-[300px] bg-white text-black hover:bg-slate-500 hover:text-white active:bg-slate-500  cursor-pointer p-3 rounded-xl`}
                   onClick={() => handleCheck(option, topic.correctAnswer)}
-                  onChange={ans ? right : worng}
                 >
-                  <ToastContainer />
                   <input
+                    onChange={ans ? right : worng}
                     type="radio"
                     name="option"
                     id={option}
@@ -82,14 +84,15 @@ const TopicDetails = () => {
                   />{" "}
                   {option}
                 </label>
+                <ToastContainer />
               </div>
             ))}
           </div>
         </div>
       ))}
       <ReactJsAlert
-        status={status} // true or false
-        type={type} // success, warning, error, info
+        status={status}
+        type={type}
         title={title}
         Close={() => setStatus(false)}
       />
