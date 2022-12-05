@@ -17,14 +17,14 @@ const TopicDetails = () => {
   const right = () =>
     toast.success("Right Ans", {
       autoClose: 1000,
-      position: "top-center",
+      position: "top-right",
       theme: "colored",
     });
 
   const worng = () =>
     toast.error("Wrong Ans", {
       autoClose: 1000,
-      position: "top-center",
+      position: "top-right",
       theme: "colored",
     });
 
@@ -48,6 +48,7 @@ const TopicDetails = () => {
       <h1 className="text-3xl">
         Topic Name: <span className="text-pink-500">{name}</span>
       </h1>
+
       {topicData.map((topic) => (
         <div
           key={topic.id}
